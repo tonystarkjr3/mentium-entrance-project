@@ -19,6 +19,7 @@ You are free to choose either Go or Python for the API and any ORM of your choic
 2. **Frontend Development:**
    - Develop a React web app that displays tickets.
    - When a ticket is clicked, display the corresponding thread.
+   - The user should be able to update ticket statuses, assignee etc.
 
 ### Task 2 - Email Collection
 1. **Workflow Scheduling:**
@@ -38,13 +39,14 @@ You are free to choose either Go or Python for the API and any ORM of your choic
 
 ## Allowed Tools
 - You are allowed to use any coding copilot or code generation tool.
+- We recommend to use ChatGTP to generate mock messages and thread. 
 - We recommend [Orval](https://orval.dev/) to generate React hooks for API calls.
 
 ## Provided Resources
 - A Docker Compose file with:
   - A Postgres DB
   - Temporal server + UI
-- A Nylas API key
+- A Nylas API key (DO NOT add commit this API Key, use )
 - A working React setup with:
   - React
   - Material-UI (MUI)
@@ -56,6 +58,10 @@ You are free to choose either Go or Python for the API and any ORM of your choic
 ## Usefull commands
 - Start docker-compose: `docker-compose up`
 - Start the web app: `cd webapp && yarn dev` 
+
+## Doc
+- https://developer.nylas.com/docs/v3/quickstart/
+- https://docs.temporal.io/
 
 ## Evaluation Criteria
 - **Code Quality:** Clear, maintainable, and well-documented code.
