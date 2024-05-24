@@ -1,4 +1,3 @@
-Sure, here's the updated code challenge in Markdown format:
 # Code Challenge: Ticket Support Platform
 
 ## Objective
@@ -7,6 +6,12 @@ Design a ticket support platform similar to Zendesk. Users will send emails to a
 ## Tasks
 
 You are free to choose either Go or Python for the API and any ORM of your choice. If you choose python we recommend FastAPI if you've work with it before.
+
+#### Considerations
+- A message will always have a thread id even if there is only one message in the thread.
+- The nylas list messages api return all messages including received, sent but also drafts, etc. You might want to filter
+- For this work effort yu can consider that a ticket can link to one thread only.
+
 
 ### Task 1 - Project Setup
 1. **API Development:**
