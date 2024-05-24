@@ -3,9 +3,15 @@
 ## Objective
 Design a ticket support platform similar to Zendesk. Users will send emails to a support email address. Each incoming email will be linked to an existing ticket if it belongs to a thread, or it will create a new ticket if it starts a new thread. The user should be able to update the status of a ticket, assign it to a user, and change the priority of the ticket. 
 
+
+## Requirements
+- Docker / Docker-compsoe
+- Create a free nylas account
+- Create a dummy email address with either outlook or gmail / Or use your own
+  
 ## Tasks
 
-You are free to choose either Go or Python for the API and any ORM of your choice. If you choose python we recommend FastAPI if you've work with it before.
+You are free to choose either Go, Python or Typescript for the API and any ORM of your choice. If you choose python we recommend FastAPI if you've work with it before. If you choose javascript/typescript we recommend nestjs + typeorm or prisma. For Go we recommend gin + entgo (or gorm by you will write more code)
 
 #### Considerations
 - A message will always have a thread id even if there is only one message in the thread.
@@ -51,7 +57,6 @@ You are free to choose either Go or Python for the API and any ORM of your choic
 - A Docker Compose file with:
   - A Postgres DB
   - Temporal server + UI
-- A Nylas API key (DO NOT add commit this API Key, use )
 - A working React setup with:
   - React
   - Material-UI (MUI)
