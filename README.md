@@ -6,12 +6,12 @@ Design a ticket support platform similar to Zendesk. Users will send emails to a
 
 ## Requirements
 - Docker / Docker-compsoe
-- Create a free nylas account
+- Create a free Nylas account https://www.nylas.com/
 - Create a dummy email address with either outlook or gmail / Or use your own
   
 ## Tasks
 
-You are free to choose either Go, Python or Typescript for the API and any ORM of your choice. If you choose python we recommend FastAPI if you've work with it before. If you choose javascript/typescript we recommend nestjs + typeorm or prisma. For Go we recommend gin + entgo (or gorm by you will write more code)
+You are free to choose either Go, Python or Typescript for the API and any ORM of your choice. If you choose python we recommend FastAPI if you've work with it before. If you choose javascript/typescript we recommend nestjs + typeorm or prisma. For Go we recommend gin + entgo (or gorm but you will have to write more code)
 
 #### Considerations
 - A message will always have a thread id even if there is only one message in the thread.
@@ -53,7 +53,7 @@ You are free to choose either Go, Python or Typescript for the API and any ORM o
 - We recommend to use ChatGTP to generate mock messages and thread. 
 - We recommend [Orval](https://orval.dev/) to generate React hooks for API calls.
 
-## Provided Resources
+## What's in there
 - A Docker Compose file with:
   - A Postgres DB
   - Temporal server + UI
