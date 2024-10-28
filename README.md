@@ -103,8 +103,8 @@ Frontend
 
 `cd webapp && npm i && npm run dev`
 
-The frontend will be on port 400
+The frontend will be on port 4000
 
 ## How do I write support emails?
 
-TODO.
+You can write emails to apokhare@alumni@cmu.edu with the title `[SpeedClerk SUPPORT]` and the body of the email will be the content of a new ticket when it is ingested into the system. 
