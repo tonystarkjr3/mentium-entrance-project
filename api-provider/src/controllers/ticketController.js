@@ -23,8 +23,8 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const { status } = req.query;
-    const tickets = await ticketService.getAllTickets(status);
+    const { status, emailThreadId } = req.query;
+    const tickets = await ticketService.getAllTickets(status, emailThreadId);
     res.status(200).json(tickets);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching tickets', error });
@@ -63,7 +63,7 @@ router.get('/emails/speedclerk-support', async (req, res) => {
     const response = await axios.get(
       `https://api.us.nylas.com/v3/grants/${process.env.NYLAS_GRANTID}/messages`, {
         params: {
-          limit: 3,
+          limit: process.env.QUERY_LIMIT,
           subject: '[SpeedClerk SUPPORT]'
         },
         headers: baseHeaders,

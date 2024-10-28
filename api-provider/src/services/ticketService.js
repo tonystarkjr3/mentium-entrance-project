@@ -16,8 +16,10 @@ module.exports = {
     return prisma.ticket.create({ data });
   },
 
-  async getAllTickets(status) {
-    const where = status ? { status } : {};
+  async getAllTickets(status, emailThreadId) {
+    const where = {};
+    if (status) where.status = status;
+    if (emailThreadId) where.emailThreadId = emailThreadId;
     return prisma.ticket.findMany({ where });
   },
 

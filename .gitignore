@@ -1,6 +1,9 @@
+# default
 tmp/
 # env and creds
 export-env-vars.bash
 api-provider/src/services/ex-requests.bash
 # library files
 node_modules/
+# python
+**/__pycache__/

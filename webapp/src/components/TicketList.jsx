@@ -14,26 +14,37 @@ import {
   Box
 } from '@mui/material'
 
+const getStatusColor = (status) => {
+  const colors = {
+    open: 'primary',
+    closed: 'default',
+    pending: 'warning',
+    resolved: 'success'
+  }
+  return colors[status] || 'default'
+}
+
 function TicketList() {
   const [tickets, setTickets] = useState([])
+  const [threadDetails, setThreadDetails] = useState({})
   const navigate = useNavigate()
 
   useEffect(() => {
     axios.get('http://localhost:3000/tickets')
       .then(response => {
         setTickets(response.data)
+        // Fetch thread details for each ticket
+        response.data.forEach(ticket => {
+          axios.get(`http://localhost:3000/tickets/${ticket.id}/emails`)
+            .then(threadResponse => {
+              setThreadDetails(prev => ({
+                ...prev,
+                [ticket.id]: threadResponse.data
+              }))
+            })
+        })
       })
   }, [])
-
-  const getStatusColor = (status) => {
-    const colors = {
-      open: 'primary',
-      closed: 'default',
-      pending: 'warning',
-      resolved: 'success'
-    }
-    return colors[status] || 'default'
-  }
 
   return (
     <Box sx={{ p: 3 }}>
@@ -65,7 +76,9 @@ function TicketList() {
                     size="small"
                   />
                 </TableCell>
-                <TableCell>{ticket.subject}</TableCell>
+                <TableCell>
+                {threadDetails[ticket.id]?.data?.latest_draft_or_message?.subject.replace('[SpeedClerk SUPPORT]', '').trim()}
+                </TableCell>
                 <TableCell>
                   {new Date(ticket.createdAt).toLocaleDateString()}
                 </TableCell>
