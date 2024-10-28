@@ -1,4 +1,4 @@
-# Code Challenge: Ticket Support Platform
+<!-- # Code Challenge: Ticket Support Platform
 
 ## Objective
 Design a ticket support platform similar to Zendesk. Users will send emails to a support email address. Each incoming email will be linked to an existing ticket if it belongs to a thread, or it will create a new ticket if it starts a new thread. The user should be able to update the status of a ticket, assign it to a user, and change the priority of the ticket. 
@@ -83,4 +83,28 @@ You are free to choose either Go, Python or Typescript for the API and any ORM o
 - **Repository:** Create a public GitHub repository for your project.
 - **README:** Include a README file with setup instructions, explanations, and any assumptions made.
   
-Good luck!
+Good luck! -->
+
+
+## SpeedClerk
+
+A prototype of a simple but robust web experience in managing customer support tickets. Hello speed!
+
+## How do I run this?
+
+Backend
+
+`cd api-provider && npm i && npm run start`
+
+The backend will be on localhost:3000 after this. That service relies on locally-hosted Postgres DB. Please search online documentation about how to use this repo's schema (`npx` scripts are your friend) and host it on default port 5432.
+
+
+Frontend
+
+`cd webapp && npm i && npm run dev`
+
+The frontend will be on port 400
+
+## How do I write support emails?
+
+TODO.
