@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+  # alternatively, localhost the DB
   # postgres:
   #   image: matthieuberger/postgres-multi-db:14-alpine
   #   ports:
@@ -22,12 +23,6 @@ services:
       - 8233:8233
     volumes:
       - ./tmp/teamporal:/usr/temporal/
-
-  # API service
-  # api: ...
-
-  # Email worker service
-  # email-worker:...
 
 networks:
   default:

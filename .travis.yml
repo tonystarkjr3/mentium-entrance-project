@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - "18"
+dist: "focal"
 
 cache:
   directories:
@@ -14,14 +15,16 @@ jobs:
         - cd webapp
         - npm install
       script:
-        - npm test -- --watchAll=false
+        - npm test run
 
     - name: "Backend Tests"
       before_script:
         - cd api-provider
         - npm install
+        # - apt-install tree && tree -fa | grep -v "node_modules"
+        - npx prisma generate --schema "$PWD/src/prisma/schema.prisma" # --schema "$PWD/api-provider/src/prisma/schema.prisma"
       script:
-        - npm test -- --watchAll=false
+        - npm test
 
 notifications:
   email:
