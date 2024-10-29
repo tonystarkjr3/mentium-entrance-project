@@ -16,6 +16,7 @@ import {
 } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import SendIcon from '@mui/icons-material/Send'
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function TicketThread() {
   const { id } = useParams()
@@ -85,13 +86,28 @@ function TicketThread() {
                 color={ticket.status === 'open' ? 'primary' : 'default'}
               />
             </Stack>
-            <Button 
-              variant="contained" 
-              color={ticket.status === 'resolved' ? 'primary' : 'success'}
-              onClick={handleStatusToggle}
-            >
-              {ticket.status === 'resolved' ? 'Reopen Ticket' : 'Mark as Resolved'}
-            </Button>
+            <Stack direction="row" spacing={2}>
+              <Button 
+                variant="contained" 
+                color={ticket.status === 'resolved' ? 'primary' : 'success'}
+                onClick={handleStatusToggle}
+              >
+                {ticket.status === 'resolved' ? 'Reopen Ticket' : 'Mark as Resolved'}
+              </Button>
+              {ticket.status === 'resolved' && (
+                <Button
+                  variant="contained"
+                  color="error"
+                  startIcon={<DeleteIcon />}
+                  onClick={() => {
+                    axios.patch(`http://localhost:3000/tickets/${id}`, { delete: true });
+                    navigate('/');
+                  }}
+                >
+                  Delete Ticket
+                </Button>
+              )}
+            </Stack>
           </Stack>
           <Typography color="text.secondary" sx={{ mt: 1 }}>
             Created: {new Date(ticket.createdAt).toLocaleString()}

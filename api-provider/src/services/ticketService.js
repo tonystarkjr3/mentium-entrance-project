@@ -16,8 +16,10 @@ module.exports = {
     return prisma.ticket.create({ data });
   },
 
+  // maybe make a method for active tickets
+
   async getAllTickets(status, emailThreadId) {
-    const where = {};
+    const where = { };
     if (status) where.status = status;
     if (emailThreadId) where.emailThreadId = emailThreadId;
     return prisma.ticket.findMany({ where });
@@ -28,8 +30,14 @@ module.exports = {
   },
 
   async updateTicket(id, data) {
-    return prisma.ticket.update({ where: { id: parseInt(id) }, data });
-  },
+    return prisma.ticket.update({ 
+      where: { id: parseInt(id) }, 
+      data: {
+        deletedAt: data.delete ? new Date() : null,
+        status: data.status || undefined
+      }
+    });
+  },  
 
   async deleteTicket(id) {
     return prisma.ticket.delete({ where: { id: parseInt(id) } });
