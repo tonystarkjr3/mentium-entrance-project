@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - "18"
+
+cache:
+  directories:
+    - webapp/node_modules
+    - api-provider/node_modules
+
+jobs:
+  include:
+    - name: "Frontend Tests"
+      before_script:
+        - cd webapp
+        - npm install
+      script:
+        - npm test -- --watchAll=false
+
+    - name: "Backend Tests"
+      before_script:
+        - cd api-provider
+        - npm install
+      script:
+        - npm test -- --watchAll=false
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
