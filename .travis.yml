@@ -22,7 +22,7 @@ jobs:
         - cd api-provider
         - npm install
         # - apt-install tree && tree -fa | grep -v "node_modules"
-        - npx prisma generate --schema "$PWD/api-provider/src/prisma/schema.prisma"
+        - npx prisma generate # --schema "$PWD/api-provider/src/prisma/schema.prisma"
       script:
         - npm test
 
