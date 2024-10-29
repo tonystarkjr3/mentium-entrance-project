@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+  # alternatively, localhost this
   # postgres:
   #   image: matthieuberger/postgres-multi-db:14-alpine
   #   ports:
