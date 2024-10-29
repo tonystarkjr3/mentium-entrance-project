@@ -23,12 +23,6 @@ services:
     volumes:
       - ./tmp/teamporal:/usr/temporal/
 
-  # API service
-  # api: ...
-
-  # Email worker service
-  # email-worker:...
-
 networks:
   default:
     driver: bridge
