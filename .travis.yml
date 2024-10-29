@@ -15,14 +15,14 @@ jobs:
         - cd webapp
         - npm install
       script:
-        - npm test -- --watchAll=false
+        - npm test run
 
     - name: "Backend Tests"
       before_script:
         - cd api-provider
         - npm install
       script:
-        - npm test -- --watchAll=false
+        - npm test
 
 notifications:
   email:
